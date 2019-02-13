@@ -1,0 +1,101 @@
+body {
+    background-image: url("handmade.jpg");
+}
+
+.text {
+    color: black;
+    text-align: center;
+    display: none;
+    padding: 10%;
+    font-style:"Comic Sans MS", cursive, sans-serif;
+    animation: txt_anim 3s infinite alternate;
+    color: #c2325a;
+}
+
+.heart:hover + .text{
+   display: block; 
+}
+
+@keyframes txt_anim {
+    0%, 30%{
+        font-size: 0px; 
+    }
+    100% { 
+        font-size: 90px;
+    }
+}
+
+.heart{
+  
+    width: 150px;
+    height:150px;
+    position:absolute;
+    top: 50%;
+    left:50%;
+    margin-top: -75px;
+    margin-left: -75px;
+    
+}
+
+.heart:after {
+    position: absolute;
+    content:"";
+    width: 100%;
+    height:100%;
+    background:rgb(211, 69, 69);
+    transition: 1.3s;
+   
+    border-radius: 100%;
+    
+    animation: pulse2 1s  infinite ;
+    animation-play-state: paused;
+}
+.heart:before {
+    position: absolute;
+    content:"";
+    width: 100%;
+    height:100%;
+    background: rgb(211, 69, 69);
+    transition: 1.3s;
+
+    
+    border-radius: 100%;
+    animation: pulse1 1s  infinite;
+    animation-play-state: paused;
+}
+.heart:hover::after {
+    
+    width: 260px;
+    height:150px;
+    transform: rotate(495deg) translate(170px, 240px);
+    transform-origin: bottom right;
+    border-radius: 150px 0px 0px 150px;
+    animation-play-state: running;
+}
+
+.heart:hover::before {
+    width: 260px;
+    height:150px;
+    transform: rotate(-675deg) translate(-167px, -14px);
+    transform-origin: bottom left;
+    border-radius: 150px 0px 0px 150px;
+    animation-play-state: running;
+   
+}
+ @keyframes pulse1 { 
+    0%, 50% {
+        box-shadow: 0 0 1px rgb(189, 32, 32, .6)
+    } 
+    100% {
+        box-shadow: -10px 10px 0 rgb(189, 32, 32, 0)
+    } 
+}
+@keyframes pulse2 { 
+    0%, 50%  {
+        box-shadow: 0 0 1px rgb(189, 32, 32, .6)
+    } 
+    100% {
+        box-shadow: -10px -10px 0  rgb(189, 32, 32, 0)
+    } 
+}
+
